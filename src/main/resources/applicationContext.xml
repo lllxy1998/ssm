@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car1" class="pojo.Car">
+        <constructor-arg name="brand" value="奥迪" />
+        <constructor-arg name="color" value="黑色" />
+        <constructor-arg name="displacement" value="2.5" />
+    </bean>
+    <bean id="car2" class="pojo.Car">
+        <constructor-arg name="brand" value="奔驰" />
+        <constructor-arg name="color" value="灰色" />
+        <constructor-arg name="displacement" value="2.0" />
+    </bean>
+    <bean id="car3" class="pojo.Car">
+        <constructor-arg name="brand" value="宝马" />
+        <constructor-arg name="color" value="白色" />
+        <constructor-arg name="displacement" value="2.2" />
+    </bean>
+    <bean id="boss1" class="pojo.Boss">
+        <property name="bossCar" ref="car1"/>
+        <property name="bossName" value="老板1"/>
+        <property name="hobbyList">
+            <list>
+                <value>老板1的爱好1</value>
+                <value>老板1的爱好2</value>
+                <value>老板1的爱好3</value>
+            </list>
+        </property>
+        <property name="managedCompany" value="老板1管理的公司1"/>
+    </bean>
+    <bean id="boss2" class="pojo.Boss">
+        <property name="bossCar" ref="car2"/>
+        <property name="bossName" value="老板2"/>
+        <property name="hobbyList">
+            <list>
+                <value>老板2的爱好1</value>
+                <value>老板2的爱好2</value>
+                <value>老板2的爱好3</value>
+            </list>
+        </property>
+        <property name="managedCompany" value="老板2管理的公司2"/>
+    </bean>
+    <bean id="boss3" class="pojo.Boss">
+        <property name="bossCar" ref="car3"/>
+        <property name="bossName" value="老板3"/>
+        <property name="hobbyList">
+            <list>
+                <value>老板3的爱好1</value>
+                <value>老板3的爱好2</value>
+                <value>老板3的爱好3</value>
+            </list>
+        </property>
+        <property name="managedCompany" value="老板3管理的公司3"/>
+    </bean>
+    <bean id="meeting" class="pojo.Meeting">
+        <property name="bossList">
+            <list>
+                <ref bean="boss1"></ref>
+                <ref bean="boss2"></ref>
+                <ref bean="boss3"></ref>
+            </list>
+        </property>
+        <property name="theme" value="会议一：主题"/>
+    </bean>
+</beans>
